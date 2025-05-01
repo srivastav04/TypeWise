@@ -14,7 +14,7 @@ const itemVariants = {
 
 const OtherStatsPage = () => {
     const location = useLocation();
-    const { averageScore, createdAt, scores, totalTests, userName, avatar } = location.state;
+    const { averageScore, createdAt, scores = [], totalTests, userName } = location.state;
     const avgWPM = Math.round(averageScore || 0);
     const highestWPM = scores.length ? Math.max(...scores) : 0;
     const lowestWPM = scores.length ? Math.min(...scores) : 0;
@@ -27,47 +27,6 @@ const OtherStatsPage = () => {
             initial="hidden"
             animate="visible"
         >
-
-            <div className="fixed inset-0 pointer-events-none">
-                {[...Array(20)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-[1px] h-full bg-gradient-to-b from-teal-400 via-purple-400 to-transparent"
-                        style={{ left: `${(i + 1) * (100 / 21)}%` }}
-                        animate={{ opacity: [0.2, 0.4, 0.2] }}
-                        transition={{ duration: 3 + Math.random() * 3, repeat: Infinity, ease: 'easeInOut' }}
-                    />
-                ))}
-                {[...Array(12)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-full h-[1px] bg-gradient-to-r from-pink-500 via-teal-400 to-transparent"
-                        style={{ top: `${(i + 1) * (100 / 13)}%` }}
-                        animate={{ opacity: [0.2, 0.4, 0.2] }}
-                        transition={{ duration: 4 + Math.random() * 4, repeat: Infinity, ease: 'easeInOut', delay: Math.random() * 1 }}
-                    />
-                ))}
-                <motion.div
-                    className="absolute w-full h-[1px] bg-gradient-to-r from-teal-400/40 to-pink-500/40"
-                    animate={{ y: ['-30%', '130%'], opacity: [0, 0.5, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-                />
-                <motion.div
-                    className="absolute h-full w-[1px] bg-gradient-to-b from-purple-400/40 to-teal-400/40"
-                    animate={{ x: ['-30%', '130%'], opacity: [0, 0.5, 0] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: 'linear', delay: 2 }}
-                />
-                {[...Array(40)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-2 h-2 rounded-full blur-lg"
-                        style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`, background: 'radial-gradient(circle,rgba(45,212,191,0.4)0%,rgba(45,212,191,0)70%)' }}
-                        animate={{ scale: [0.8, 1.4, 0.8], opacity: [0.2, 0.5, 0.2] }}
-                        transition={{ duration: 2 + Math.random() * 2, repeat: Infinity, ease: 'easeInOut' }}
-                    />
-                ))}
-            </div>
-
             {/* Main Content */}
             <div className="relative z-10 px-6 py-12 max-w-6xl mx-auto">
                 {/* Profile */}
