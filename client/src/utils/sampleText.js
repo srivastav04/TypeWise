@@ -1,9 +1,11 @@
 export const sampleTexts = [
-  "Innovation thrives when creativity meets persistence; every challenge invites learning, growth, and transformation. Embrace uncertainty, cultivate curiosity, and dare to dream beyond boundaries for extraordinary.",
-  "Naruto Uzumaki, a spirited orphan shunned by his village, perseveres through friendship, courage, and unyielding resolve, becoming Hokage, inspiring countless ninja across the shinobi world.",
-  "Roronoa Zoro, the legendary swordsman of unparalleled resolve, masters three-sword style through unwavering discipline, loyalty, and indomitable spirit, protecting crewmates and pursuing dreams through relentless journey beyond horizon.",
-  "Developers think analytically and creatively, break problems into modular parts, anticipate edge cases, embrace continuous learning, write clear, maintainable code, debug systematically, and collaborate effectively.",
-  "On track titans Lewis Hamilton and Max Verstappen clash like gladiators, pushing limits, respecting mastery, trading blows lap by lap in an epic duel for ultimate racing supremacy",
-  "Sunrisers Hyderabad’s batting lineup demolishes bowling attacks with ferocious power hitting, relentless acceleration, depth in brutal firepower, dynamic strokeplay, game-changing sixes, and fearless approach that overwhelms opponents consistently.",
-  "Well, you only need the light when it's burning low Only miss the sun when it starts to snow Only know you love her when you let her go",
+  "There is a point at seven thousand RPM where everything fades the machine becomes weightless it just disappears all that is left is a body moving through space and time and it asks you a question the only question that really matters who are you",
+  "Who is gonna be last on the brakes Leclerc has that inside line Perez goes off the track cuts the chicane off goes Leclerc through goes Hamilton unbelievable stuff",
+  "We are humans not fish we do not know what kind of people we truly are until the moment before our deaths as death comes you will realize what you are that is what death is an answer to the question of what you are",
+  "Wake up to reality nothing ever goes as planned in this accursed world the longer you live the more you realize that the only things that truly exist in this reality are merely pain suffering and futility",
+  "I am not the only traveler who has not repaid his debt I have been searching for a trail to follow again take me back to the night we met",
+  "Learning to type accurately builds confidence each mistake teaches a lesson speed follows precision practice patience and persistence always win mastery arrives slowly but surely never by chance",
+  "When hands dance across the keyboard like music notes in motion typing transforms into art speed follows serenity and accuracy grows from the calm mind of the typist",
+  "Roronoa Zoro is one of the most important pirates in the world of One Piece despite his horrible sense of direction he possesses a unique perspective and a surprising amount of wisdom that has been integral in moving the crew forward",
+  "Heaven when I held you again how could we ever just be friends I would rather die than let you go Juliet to your Romeo how I heard you say I would never fall in love again until I found her",
 ];

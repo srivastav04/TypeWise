@@ -17,7 +17,7 @@ function App() {
       <Route path='/signup' element={<SignUpPage />} />
       <Route path='/stats' element={<StatsPage />} />
       <Route path='/stats/:userName' element={<OtherStatsPage />} />
-      <Route path='/vasu' element={<AdminPage />} />
+      <Route path={import.meta.env.VITE_ADMIN_ROUTE} element={<AdminPage />} />
     </Routes>
   );
 }

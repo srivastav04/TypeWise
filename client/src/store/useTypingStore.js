@@ -46,8 +46,8 @@ export const useTypingStore = create(
         } else if (key.length === 1) {
           const newTyped = typed + key;
           set({ typed: newTyped });
-          if (newTyped === text) {
-            // compute WPM
+          console.log({ newTyped, text });
+          if (newTyped.trim() === text.trim()) {
             const elapsedMin = (Date.now() - get().startTime) / 1000 / 60;
             const wpm = Math.round(newTyped.length / 5 / elapsedMin);
             set({ finished: true, wpm });

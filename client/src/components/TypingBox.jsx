@@ -11,6 +11,9 @@ export default function TypingBox() {
             {text.split('').map((char, idx) => {
                 const isTyped = idx < typed.length;
                 const isCurrent = idx === typed.length;
+                const isError = isTyped && char !== typed[idx];
+                const isSpace = char === ' ';
+
                 return (
                     <span key={idx} className="relative">
                         {isCurrent && (
@@ -21,16 +24,10 @@ export default function TypingBox() {
                                 transition={{ repeat: Infinity, duration: 1 }}
                             />
                         )}
-                        <span
-                            className={clsx(
-                                'whitespace-pre transition-colors duration-200',
-                                isTyped
-                                    ? char === typed[idx]
-                                        ? 'text-white font-bold'
-                                        : 'text-red-500'
-                                    : 'text-gray-500'
-                            )}
-                        >
+
+                        <span className={clsx('whitespace-pre inline-block transition-colors duration-200',
+                            !isTyped ? 'text-gray-500' : !isError ? 'text-white font-bold'
+                                : isSpace ? 'bg-red-500' : 'text-red-500')}>
                             {char}
                         </span>
                     </span>

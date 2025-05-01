@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:5000";
+const URL = import.meta.env.VITE_ROUTE;
 export const userLogin = async (userName, password) => {
   const response = await axios.post(`${URL}/userLogin`, {
     userName,

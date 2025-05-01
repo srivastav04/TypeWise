@@ -27,9 +27,9 @@ export default function Result({ onRestart }) {
             <WPMMeter wpm={wpm} />
             <button
                 onClick={handleRestart}
-                className="px-5 py-2 bg-gradient-to-r from-teal-300 via-purple-400 to-pink-500 text-black font-semibold rounded-xl"
+                className="px-5 py-2 bg-gradient-to-r from-teal-300 via-purple-400 to-pink-500 font-semibold rounded-xl"
             >
-                Restart Test
+                Continue
             </button>
         </div>
     );

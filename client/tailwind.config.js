@@ -1,23 +1,22 @@
-/*@type {import('tailwindcss').Config} */
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      keyframes: {
-        spinSlow: {
-          "0%": { transform: "rotate(0)" },
-          "100%": { transform: "rotate(360deg)" },
-        },
-        spinReverse: {
-          "0%": { transform: "rotate(0)" },
-          "100%": { transform: "rotate(-360deg)" },
-        },
-      },
       animation: {
-        "spin-slow": "spinSlow 20s linear infinite",
-        "spin-reverse": "spinReverse 25s linear infinite",
+        "bg-position": "bg-position 3s ease-in-out infinite",
+        shimmer: "shimmer 2.5s ease-in-out infinite",
+      },
+      keyframes: {
+        "bg-position": {
+          "0%, 100%": { "background-position": "0% 50%" },
+          "50%": { "background-position": "100% 50%" },
+        },
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
     },
   },
-  plugins: [],
 };

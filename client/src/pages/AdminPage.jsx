@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import DeleteCard from '../components/DeleteCard';
 import { allStats } from '../apiFunctions';
 import LoadingPage from '../components/Loading';
+import ErrorPage from '../components/ErrorPage';
 
 
 const AdminPage = () => {
@@ -15,7 +16,8 @@ const AdminPage = () => {
         return <LoadingPage />;
     }
     if (isError) {
-        return <div className="flex justify-center items-center h-screen text-red-400">Failed to load users.</div>;
+        return <ErrorPage />;
+
     }
 
     return (

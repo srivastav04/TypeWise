@@ -6,6 +6,7 @@ import WPMMeter from '../components/WPM';
 import { allStats } from '../apiFunctions';
 import OtherCard from '../components/OtherCard';
 import LoadingPage from '../components/Loading';
+import ErrorPage from '../components/ErrorPage';
 
 const pageVariants = {
     hidden: { opacity: 0 },
@@ -29,7 +30,7 @@ const StatsPage = () => {
         return <LoadingPage />
     }
     if (isError) {
-        return <div className="flex justify-center items-center h-screen text-red-500">Error loading stats</div>;
+        return <ErrorPage />;
     }
 
     // find current user and compute metrics
