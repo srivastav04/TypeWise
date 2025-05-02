@@ -11,72 +11,102 @@ export default function TypingTest() {
         startTest,
         resetTest,
         setText,
+        text,
+        typed,
         handleKeyPress,
     } = useTypingStore();
 
-    // Reference to hidden input to capture mobile keyboard events
-    const inputRef = useRef(null);
+    const textareaRef = useRef(null);
 
-    // Load a new random text
+    // Load a new random sample sentence
     const loadNewText = () => {
-        const sample = sampleTexts[Math.floor(Math.random() * sampleTexts.length)];
+        const sample = sampleTexts[
+            Math.floor(Math.random() * sampleTexts.length)
+        ];
         setText(sample);
     };
 
+    // On mount, load text
     useEffect(() => {
         loadNewText();
     }, []);
 
-    // Focus the hidden input whenever test starts
+    // Global key listener for desktop typing
     useEffect(() => {
+        const onKey = (e) => {
+            if (!started || finished) return;
+            // If mobile textarea is focused, skip (mobile handled by textarea)
+            if (document.activeElement === textareaRef.current) return;
+            const key = e.key;
+            if (key === 'Backspace' || key.length === 1) {
+                e.preventDefault();
+                handleKeyPress(key);
+            }
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [started, finished, handleKeyPress]);
+
+    // Manual focus to show keyboard on mobile
+    const handleScreenTap = () => {
         if (started && !finished) {
-            inputRef.current?.focus();
+            textareaRef.current?.focus({ preventScroll: true });
         }
-    }, [started, finished]);
+    };
 
     const restartTest = () => {
         resetTest();
         loadNewText();
-        // user must click Start again
     };
 
     return (
-        <div className="w-full h-screen flex flex-col items-center justify-center bg-black text-white relative">
-            {/* Hidden input to trigger mobile keyboard and capture keystrokes */}
-            <input
-                ref={inputRef}
-                type="text"
-                className="absolute opacity-0 w-0 h-0"
-                onKeyDown={(e) => {
-                    e.preventDefault();
-                    if (started && !finished) {
-                        handleKeyPress(e.key);
-                    }
-                }}
-                autoComplete="off"
-            />
-
+        <div
+            className="w-full h-screen flex flex-col items-center justify-center bg-black text-white relative overflow-auto"
+            onClick={handleScreenTap}
+        >
             {!started && !finished && (
                 <>
-                    <div className='flex justify-center items-center'>
-                        <p className="mb-1  text-gray-400">There should be no errors to submit the test</p>
-                    </div>
-
+                    <p className="mb-2 text-gray-400">Make no mistakes to finish</p>
                     <button
                         onClick={() => {
                             loadNewText();
                             startTest();
-                            // Focus input within user event to trigger keyboard on mobile
-                            setTimeout(() => inputRef.current?.focus(), 0);
                         }}
-                        className="mt-4 px-6 py-3 bg-gradient-to-r from-teal-300 via-purple-400 to-pink-500 font-semibold rounded-xl"
+                        className="px-6 py-3 bg-gradient-to-r from-teal-300 via-purple-400 to-pink-500 font-semibold rounded-xl"
                     >
                         Start Typing Test
                     </button>
                 </>
             )}
 
-            {started && !finished && <TypingBox />}
+            {started && !finished && (
+                <>
+                    {/* Visual display */}
+                    <TypingBox />
+
+                    {/* Invisible textarea: no autoFocus */}
+                    <textarea
+                        ref={textareaRef}
+                        className="fixed bottom-0 left-0 w-full h-12 opacity-0 pointer-events-auto outline-none resize-none"
+                        value={typed}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Backspace') {
+                                e.preventDefault();
+                                handleKeyPress('Backspace');
+                            }
+                        }}
+                        onChange={(e) => {
+                            const val = e.target.value;
+                            const delta = val.slice(typed.length);
+                            for (let ch of delta) handleKeyPress(ch);
+                        }}
+                        spellCheck="false"
+                        autoComplete="off"
+                        autoCorrect="off"
+                    />
+                </>
+            )}
+
             {finished && <Result onRestart={restartTest} />}
         </div>
     );

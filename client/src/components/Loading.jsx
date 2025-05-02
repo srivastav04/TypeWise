@@ -3,6 +3,22 @@ import { motion } from 'framer-motion';
 const LoadingPage = () => {
     return (
         <div className="w-screen h-screen bg-black flex flex-col items-center justify-center overflow-hidden space-y-8">
+
+            {/* Holographic Text */}
+            <motion.div
+                className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400"
+                animate={{
+                    textShadow: [
+                        '0 0 8px rgba(34,211,238,0.3)',
+                        '0 0 12px rgba(168,85,247,0.4)',
+                        '0 0 8px rgba(236,72,153,0.3)'
+                    ],
+                    opacity: [0.8, 1, 0.8]
+                }}
+                transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+            >
+                Loading...
+            </motion.div>
             {/* Pulsing Energy Beam */}
             <div className="relative w-64 h-4 rounded-full overflow-hidden">
                 <motion.div
@@ -21,41 +37,6 @@ const LoadingPage = () => {
                     }}
                     transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
                 />
-            </div>
-            {/* Holographic Text */}
-            <motion.div
-                className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400"
-                animate={{
-                    textShadow: [
-                        '0 0 8px rgba(34,211,238,0.3)',
-                        '0 0 12px rgba(168,85,247,0.4)',
-                        '0 0 8px rgba(236,72,153,0.3)'
-                    ],
-                    opacity: [0.8, 1, 0.8]
-                }}
-                transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-            >
-                Loading...
-            </motion.div>
-
-            {/* Progress Dots */}
-            <div className="flex space-x-3">
-                {[...Array(3)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="w-3 h-3 rounded-full bg-gradient-to-br from-cyan-400 to-purple-500"
-                        animate={{
-                            scale: [1, 1.4, 1],
-                            opacity: [0.4, 1, 0.4]
-                        }}
-                        transition={{
-                            repeat: Infinity,
-                            duration: 1.2,
-                            delay: i * 0.2,
-                            ease: 'easeInOut'
-                        }}
-                    />
-                ))}
             </div>
         </div>
     );
