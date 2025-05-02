@@ -35,7 +35,6 @@ export default function TypingTest() {
     useEffect(() => {
         const onKey = (e) => {
             if (!started || finished) return;
-            // If mobile textarea is focused, skip (mobile handled by textarea)
             if (document.activeElement === textareaRef.current) return;
             const key = e.key;
             if (key === 'Backspace' || key.length === 1) {
@@ -63,6 +62,7 @@ export default function TypingTest() {
         <div
             className="w-full h-screen flex flex-col items-center justify-center bg-black text-white relative overflow-auto"
             onClick={handleScreenTap}
+            style={{ touchAction: 'manipulation' }}
         >
             {!started && !finished && (
                 <>
@@ -81,13 +81,12 @@ export default function TypingTest() {
 
             {started && !finished && (
                 <>
-                    {/* Visual display */}
                     <TypingBox />
 
-                    {/* Invisible textarea: no autoFocus */}
+
                     <textarea
                         ref={textareaRef}
-                        className="fixed bottom-0 left-0 w-full h-12 opacity-0 pointer-events-auto outline-none resize-none"
+                        className="fixed -bottom-[100px] left-0 w-full h-12 opacity-0 pointer-events-auto outline-none resize-none"
                         value={typed}
                         onKeyDown={(e) => {
                             if (e.key === 'Backspace') {
@@ -103,6 +102,8 @@ export default function TypingTest() {
                         spellCheck="false"
                         autoComplete="off"
                         autoCorrect="off"
+                        enterKeyHint="done"
+                        data-hidden="true"
                     />
                 </>
             )}
