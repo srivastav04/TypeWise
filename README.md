@@ -1,34 +1,47 @@
-⌨️ TypeWise — Typing Practice Web App
-TypeWise is a visually engaging and responsive typing practice website built for desktop users. Designed to enhance your typing speed and accuracy, it features smooth animations, a clean UI, and real-time feedback—all built from the ground up using the MERN stack.
+# ⌨️ TypeWise — Typing Practice Web App
+
+**TypeWise** is a visually engaging and responsive typing practice website built for **desktop users**. Designed to enhance your typing speed and accuracy, it features smooth animations, a clean UI, and real-time feedback—all built from the ground up using the **MERN stack**.
 
 This side project was a fun opportunity to deepen my full-stack development skills, experiment with frontend animations, and create an interactive experience that’s both functional and aesthetic.
 
-⚠️ Note: TypeWise is optimized for desktop. Mobile support is limited for now.
+> ⚠️ **Note**: TypeWise is optimized for desktop. Mobile support is limited for now.
 
-🚀 Tech Stack
-Frontend
+---
 
-React
+## 🚀 Tech Stack
 
-React Query
+**Frontend**  
+- React  
+- React Query  
+- Tailwind CSS  
+- Framer Motion (for animations)
 
-Tailwind CSS
+**Backend**  
+- Node.js  
+- Express.js  
+- MongoDB (with Mongoose)
 
-Framer Motion (for animations)
+---
 
-Backend
+## 🧩 Features
 
-Node.js
+- 🎯 Real-time typing feedback (accuracy, speed, mistakes)
+- 🖼️ Clean and focused user interface with keyboard-friendly layout
+- ⚡ Optimized for desktop performance
+- 📊 Visual feedback on typing metrics
+- 📁 Modular full-stack architecture
 
-Express.js
+---
 
-MongoDB (with Mongoose)
+## 📸 Preview
 
-🧩 Features
+> _(Optional: Add a screenshot or short screen recording GIF here)_
 
-🖼️ Clean and focused user interface with keyboard-friendly layout
+---
 
-⚡ Optimized for desktop performance
+## 🛠️ Setup Instructions
 
-📊 Visual feedback on typing metrics
-
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/typewise.git
+   cd typewise
