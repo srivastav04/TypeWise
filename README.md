@@ -25,23 +25,8 @@ This side project was a fun opportunity to deepen my full-stack development skil
 
 ## 🧩 Features
 
-- 🎯 Real-time typing feedback (accuracy, speed, mistakes)
 - 🖼️ Clean and focused user interface with keyboard-friendly layout
 - ⚡ Optimized for desktop performance
 - 📊 Visual feedback on typing metrics
 - 📁 Modular full-stack architecture
 
----
-
-## 📸 Preview
-
-> _(Optional: Add a screenshot or short screen recording GIF here)_
-
----
-
-## 🛠️ Setup Instructions
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/typewise.git
-   cd typewise
